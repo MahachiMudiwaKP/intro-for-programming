@@ -1,0 +1,1786 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Mudiwa Mahachi - Web Developer Portfolio" />
+        <meta name="author" content="Mudiwa Mahachi" />
+        <title>Mudiwa Mahachi - Web Developer</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            :root {
+                --primary: #2c3e50;
+                --secondary: #1abc9c;
+            }
+            
+            body {
+                font-family: 'Lato', sans-serif;
+            }
+            
+            h1, h2, h3, h4, h5, h6 {
+                font-family: 'Montserrat', sans-serif;
+            }
+            
+            .bg-primary {
+                background-color: var(--primary) !important;
+            }
+            
+            .bg-secondary {
+                background-color: var(--secondary) !important;
+            }
+            
+            .text-secondary {
+                color: var(--secondary) !important;
+            }
+            
+            .btn-primary {
+                background-color: var(--secondary);
+                border-color: var(--secondary);
+            }
+            
+            .btn-primary:hover {
+                background-color: #16a085;
+                border-color: #16a085;
+            }
+            
+            .divider-custom {
+                margin: 1.25rem 0 1.5rem;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            
+            .divider-custom .divider-custom-line {
+                width: 100%;
+                max-width: 7rem;
+                height: 0.25rem;
+                background-color: currentColor;
+                border-radius: 1rem;
+                border-color: currentColor;
+            }
+            
+            .divider-custom .divider-custom-line:first-child {
+                margin-right: 1rem;
+            }
+            
+            .divider-custom .divider-custom-line:last-child {
+                margin-left: 1rem;
+            }
+            
+            .divider-custom .divider-custom-icon {
+                color: currentColor;
+                font-size: 2rem;
+            }
+            
+            .divider-custom.divider-light .divider-custom-line {
+                background-color: #fff;
+            }
+            
+            .divider-custom.divider-light .divider-custom-icon {
+                color: #fff;
+            }
+            
+            .portfolio-item {
+                position: relative;
+                display: block;
+                max-width: 25rem;
+                margin-bottom: 30px;
+                border-radius: 0.5rem;
+                overflow: hidden;
+                cursor: pointer;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                transition: all 0.3s ease;
+            }
+            
+            .portfolio-item:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            }
+            
+            .portfolio-item-caption {
+                position: absolute;
+                top: 0;
+                left: 0;
+                transition: all 0.2s ease-in-out;
+                opacity: 0;
+                background-color: rgba(26, 188, 156, 0.9);
+            }
+            
+            .portfolio-item:hover .portfolio-item-caption {
+                opacity: 1;
+            }
+            
+            .portfolio-item-caption-content {
+                font-size: 1.5rem;
+            }
+            
+            .masthead {
+                padding-top: calc(6rem + 74px);
+                padding-bottom: 6rem;
+            }
+            
+            .masthead .masthead-avatar {
+                width: 15rem;
+            }
+            
+            .masthead .masthead-heading {
+                font-size: 2.75rem;
+                line-height: 2.75rem;
+            }
+            
+            .masthead .masthead-subheading {
+                font-size: 1.25rem;
+            }
+            
+            .page-section {
+                padding: 6rem 0;
+            }
+            
+            .page-section .page-section-heading {
+                font-size: 2.25rem;
+                line-height: 2rem;
+            }
+            
+            @media (min-width: 992px) {
+                .page-section .page-section-heading {
+                    font-size: 3rem;
+                    line-height: 2.5rem;
+                }
+            }
+            
+            .footer {
+                padding-top: 5rem;
+                padding-bottom: 5rem;
+                background-color: #2c3e50;
+                color: #fff;
+            }
+            
+            .copyright {
+                background-color: #1a252f;
+            }
+            
+            .btn-social {
+                border-radius: 100%;
+                display: inline-flex;
+                width: 3.25rem;
+                height: 3.25rem;
+                font-size: 1.25rem;
+                justify-content: center;
+                align-items: center;
+            }
+            
+            .portfolio-modal .modal-dialog {
+                margin: 1rem;
+                max-width: 100vw;
+            }
+            
+            .portfolio-modal .modal-content {
+                padding-top: 6rem;
+                padding-bottom: 6rem;
+                text-align: center;
+            }
+            
+            .portfolio-modal .modal-content h2 {
+                font-size: 3rem;
+                line-height: 3rem;
+            }
+            
+            .portfolio-modal .modal-content img.img-fluid {
+                margin-bottom: 2rem;
+            }
+            
+            .portfolio-modal .close-modal {
+                position: absolute;
+                top: 1.5rem;
+                right: 1.5rem;
+                width: 3rem;
+                height: 3rem;
+                cursor: pointer;
+                background-color: transparent;
+            }
+            
+            /* Custom styles for the portfolio items */
+            .portfolio-preview {
+                background-color: #f8f9fa;
+                border-radius: 8px;
+                padding: 15px;
+                height: 100%;
+                min-height: 300px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            
+            .portfolio-preview h4 {
+                margin-bottom: 15px;
+                color: var(--primary);
+            }
+            
+            .portfolio-preview p {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            
+            .tech-badge {
+                display: inline-block;
+                background-color: var(--secondary);
+                color: white;
+                padding: 5px 10px;
+                border-radius: 15px;
+                font-size: 0.8rem;
+                margin: 2px;
+            }
+            
+            /* My Shop specific styles */
+            .my-shop-container {
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            }
+            
+            .my-shop-logo {
+                text-align: center;
+                margin-bottom: 30px;
+                font-size: 2.5rem;
+                font-weight: bold;
+                color: var(--primary);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+            }
+            
+            .my-shop-logo i {
+                color: var(--secondary);
+                font-size: 2.8rem;
+            }
+            
+            .shop-table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 20px;
+            }
+            
+            .shop-table th, .shop-table td {
+                padding: 12px 15px;
+                text-align: center;
+                border-bottom: 1px solid #ddd;
+            }
+            
+            .shop-table th {
+                background-color: var(--primary);
+                color: white;
+                font-weight: bold;
+            }
+            
+            .shop-table tr:hover {
+                background-color: #f5f5f5;
+            }
+            
+            .quantity-display {
+                font-weight: bold;
+                font-size: 1.1rem;
+                color: var(--primary);
+            }
+            
+            .total-display {
+                font-weight: bold;
+                color: var(--secondary);
+            }
+            
+            .btn-shop {
+                padding: 8px 15px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-weight: bold;
+                transition: all 0.3s;
+            }
+            
+            .btn-add {
+                background-color: #28a745;
+                color: white;
+            }
+            
+            .btn-add:hover {
+                background-color: #218838;
+            }
+            
+            .btn-remove {
+                background-color: #dc3545;
+                color: white;
+            }
+            
+            .btn-remove:hover {
+                background-color: #c82333;
+            }
+            
+            .checkout-section {
+                text-align: center;
+                margin-top: 30px;
+                padding-top: 20px;
+                border-top: 2px solid #eee;
+            }
+            
+            .btn-checkout {
+                background-color: var(--secondary);
+                color: white;
+                padding: 12px 30px;
+                font-size: 1.2rem;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: all 0.3s;
+            }
+            
+            .btn-checkout:hover {
+                background-color: #16a085;
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+            
+            .grand-total {
+                font-size: 1.5rem;
+                font-weight: bold;
+                margin-bottom: 20px;
+                color: var(--primary);
+            }
+            
+            /* Dancing Robot styles */
+            .robot-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin: 20px 0;
+            }
+            
+            .robot {
+                width: 150px;
+                height: 200px;
+                position: relative;
+                margin-bottom: 20px;
+            }
+            
+            .robot-head {
+                width: 100px;
+                height: 80px;
+                background-color: #3498db;
+                border-radius: 20px;
+                position: absolute;
+                top: 0;
+                left: 25px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            
+            .robot-eye {
+                width: 20px;
+                height: 20px;
+                background-color: white;
+                border-radius: 50%;
+                margin: 0 5px;
+                position: relative;
+            }
+            
+            .robot-eye::after {
+                content: '';
+                width: 10px;
+                height: 10px;
+                background-color: #2c3e50;
+                border-radius: 50%;
+                position: absolute;
+                top: 5px;
+                left: 5px;
+            }
+            
+            .robot-body {
+                width: 120px;
+                height: 100px;
+                background-color: #2980b9;
+                border-radius: 15px;
+                position: absolute;
+                top: 80px;
+                left: 15px;
+            }
+            
+            .robot-arm {
+                width: 20px;
+                height: 80px;
+                background-color: #2980b9;
+                position: absolute;
+                top: 80px;
+            }
+            
+            .robot-arm.left {
+                left: 0;
+                transform-origin: top center;
+                animation: danceLeft 1s infinite alternate;
+            }
+            
+            .robot-arm.right {
+                right: 0;
+                transform-origin: top center;
+                animation: danceRight 1s infinite alternate;
+            }
+            
+            .robot-leg {
+                width: 25px;
+                height: 60px;
+                background-color: #1f618d;
+                position: absolute;
+                top: 180px;
+            }
+            
+            .robot-leg.left {
+                left: 40px;
+                transform-origin: top center;
+                animation: danceLeft 0.8s infinite alternate;
+            }
+            
+            .robot-leg.right {
+                right: 40px;
+                transform-origin: top center;
+                animation: danceRight 0.8s infinite alternate;
+            }
+            
+            @keyframes danceLeft {
+                0% { transform: rotate(-10deg); }
+                100% { transform: rotate(10deg); }
+            }
+            
+            @keyframes danceRight {
+                0% { transform: rotate(10deg); }
+                100% { transform: rotate(-10deg); }
+            }
+            
+            .dance-controls {
+                margin-top: 20px;
+            }
+            
+            /* Things I Like styles */
+            .likes-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+                margin: 30px 0;
+            }
+            
+            .like-item {
+                width: 150px;
+                height: 150px;
+                background-color: white;
+                border-radius: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                transition: all 0.3s;
+                cursor: pointer;
+            }
+            
+            .like-item:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            }
+            
+            .like-item i {
+                font-size: 3rem;
+                margin-bottom: 10px;
+                color: var(--secondary);
+            }
+            
+            .like-item span {
+                font-weight: bold;
+                color: var(--primary);
+            }
+            
+            .like-item.active {
+                background-color: var(--secondary);
+            }
+            
+            .like-item.active i, .like-item.active span {
+                color: white;
+            }
+            
+            .likes-description {
+                margin-top: 20px;
+                padding: 15px;
+                background-color: #f8f9fa;
+                border-radius: 8px;
+                max-width: 600px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            /* Fortune Teller styles */
+            .fortune-container {
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            }
+            
+            .fortune-title {
+                text-align: center;
+                margin-bottom: 30px;
+                font-size: 2rem;
+                color: var(--primary);
+            }
+            
+            .crystal-ball {
+                width: 200px;
+                height: 200px;
+                background: radial-gradient(circle at 30% 30%, #8A2BE2, #4B0082);
+                border-radius: 50%;
+                margin: 0 auto 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 0 30px rgba(138, 43, 226, 0.5);
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .crystal-ball::before {
+                content: '';
+                position: absolute;
+                width: 100px;
+                height: 100px;
+                background: rgba(255, 255, 255, 0.2);
+                border-radius: 50%;
+                top: 20px;
+                left: 30px;
+            }
+            
+            .fortune-input {
+                width: 100%;
+                padding: 12px;
+                margin-bottom: 20px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                font-size: 1rem;
+            }
+            
+            .fortune-btn {
+                background-color: #8A2BE2;
+                color: white;
+                border: none;
+                padding: 12px 30px;
+                font-size: 1.2rem;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: all 0.3s;
+                display: block;
+                margin: 0 auto;
+            }
+            
+            .fortune-btn:hover {
+                background-color: #7B1FA2;
+                transform: translateY(-2px);
+            }
+            
+            .fortune-result {
+                margin-top: 30px;
+                padding: 20px;
+                background-color: #f8f9fa;
+                border-radius: 8px;
+                min-height: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                font-size: 1.2rem;
+                color: var(--primary);
+            }
+            
+            /* Lunch Game styles */
+            .lunch-game-container {
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            }
+            
+            .lunch-title {
+                text-align: center;
+                margin-bottom: 30px;
+                font-size: 2rem;
+                color: var(--primary);
+            }
+            
+            .food-options {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+                margin-bottom: 30px;
+                flex-wrap: wrap;
+            }
+            
+            .food-option {
+                width: 120px;
+                height: 120px;
+                background-color: white;
+                border-radius: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                cursor: pointer;
+                transition: all 0.3s;
+            }
+            
+            .food-option:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            }
+            
+            .food-option i {
+                font-size: 2.5rem;
+                margin-bottom: 10px;
+                color: var(--secondary);
+            }
+            
+            .food-option span {
+                font-weight: bold;
+                color: var(--primary);
+            }
+            
+            .food-option.selected {
+                background-color: var(--secondary);
+            }
+            
+            .food-option.selected i, .food-option.selected span {
+                color: white;
+            }
+            
+            .lunch-result {
+                margin-top: 30px;
+                padding: 20px;
+                background-color: #f8f9fa;
+                border-radius: 8px;
+                min-height: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                font-size: 1.2rem;
+                color: var(--primary);
+            }
+            
+            /* Pizzeria styles */
+            .pizzeria-container {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            }
+            
+            .pizzeria-title {
+                text-align: center;
+                margin-bottom: 30px;
+                font-size: 2rem;
+                color: var(--primary);
+            }
+            
+            .pizza-base {
+                width: 200px;
+                height: 200px;
+                background-color: #F4A460;
+                border-radius: 50%;
+                margin: 0 auto 30px;
+                position: relative;
+                box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            }
+            
+            .toppings-selector {
+                display: flex;
+                justify-content: center;
+                gap: 15px;
+                margin-bottom: 30px;
+                flex-wrap: wrap;
+            }
+            
+            .topping-option {
+                padding: 10px 15px;
+                background-color: white;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: all 0.3s;
+            }
+            
+            .topping-option:hover {
+                background-color: #f8f9fa;
+            }
+            
+            .topping-option.selected {
+                background-color: var(--secondary);
+                color: white;
+                border-color: var(--secondary);
+            }
+            
+            .pizza-summary {
+                background-color: #f8f9fa;
+                padding: 15px;
+                border-radius: 8px;
+                margin-bottom: 20px;
+            }
+            
+            .pizza-result {
+                margin-top: 30px;
+                padding: 20px;
+                background-color: #f8f9fa;
+                border-radius: 8px;
+                min-height: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                font-size: 1.2rem;
+                color: var(--primary);
+            }
+        </style>
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="#page-top">Mudiwa Mahachi</a>
+                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Portfolio</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead bg-primary text-white text-center">
+            <div class="container d-flex align-items-center flex-column">
+                <!-- Masthead Avatar Image-->
+                <img class="masthead-avatar mb-5" src="https://ui-avatars.com/api/?name=Mudiwa+Mahachi&size=200&background=1abc9c&color=fff" alt="Mudiwa Mahachi" />
+                <!-- Masthead Heading-->
+                <h1 class="masthead-heading text-uppercase mb-0">Mudiwa Mahachi</h1>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Masthead Subheading-->
+                <p class="masthead-subheading font-weight-light mb-0">Web Developer - Frontend Specialist - UI/UX Enthusiast</p>
+            </div>
+        </header>
+        <!-- Portfolio Section-->
+        <section class="page-section portfolio" id="portfolio">
+            <div class="container">
+                <!-- Portfolio Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Portfolio</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Portfolio Grid Items-->
+                <div class="row justify-content-center">
+                    <!-- Portfolio Item 1 - My Shop -->
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <div class="portfolio-preview">
+                                <i class="fas fa-store fa-3x mb-3" style="color: #1abc9c;"></i>
+                                <h4>My Shop</h4>
+                                <p>Interactive shopping cart with product management and checkout functionality.</p>
+                                <div>
+                                    <span class="tech-badge">JavaScript</span>
+                                    <span class="tech-badge">HTML5</span>
+                                    <span class="tech-badge">CSS3</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 2 - Dancing Robot -->
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal2">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <div class="portfolio-preview">
+                                <i class="fas fa-robot fa-3x mb-3" style="color: #1abc9c;"></i>
+                                <h4>Dancing Robot</h4>
+                                <p>Interactive animated robot with dance controls and visual effects.</p>
+                                <div>
+                                    <span class="tech-badge">CSS3</span>
+                                    <span class="tech-badge">JavaScript</span>
+                                    <span class="tech-badge">Animations</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 3 - Things I Like -->
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <div class="portfolio-preview">
+                                <i class="fas fa-heart fa-3x mb-3" style="color: #1abc9c;"></i>
+                                <h4>Things I Like</h4>
+                                <p>Interactive showcase of personal interests with descriptions.</p>
+                                <div>
+                                    <span class="tech-badge">JavaScript</span>
+                                    <span class="tech-badge">HTML5</span>
+                                    <span class="tech-badge">CSS3</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 4 - Fortune Teller -->
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <div class="portfolio-preview">
+                                <i class="fas fa-crystal-ball fa-3x mb-3" style="color: #1abc9c;"></i>
+                                <h4>Fortune Teller</h4>
+                                <p>Interactive fortune telling application with mystical predictions.</p>
+                                <div>
+                                    <span class="tech-badge">JavaScript</span>
+                                    <span class="tech-badge">HTML5</span>
+                                    <span class="tech-badge">CSS3</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 5 - Lunch Game -->
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <div class="portfolio-preview">
+                                <i class="fas fa-utensils fa-3x mb-3" style="color: #1abc9c;"></i>
+                                <h4>Lunch Game</h4>
+                                <p>Fun food selection game to help decide what to eat for lunch.</p>
+                                <div>
+                                    <span class="tech-badge">JavaScript</span>
+                                    <span class="tech-badge">HTML5</span>
+                                    <span class="tech-badge">CSS3</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 6 - Pizzeria -->
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <div class="portfolio-preview">
+                                <i class="fas fa-pizza-slice fa-3x mb-3" style="color: #1abc9c;"></i>
+                                <h4>Pizzeria</h4>
+                                <p>Interactive pizza builder with customizable toppings and orders.</p>
+                                <div>
+                                    <span class="tech-badge">JavaScript</span>
+                                    <span class="tech-badge">HTML5</span>
+                                    <span class="tech-badge">CSS3</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About Section-->
+        <section class="page-section bg-primary text-white mb-0" id="about">
+            <div class="container">
+                <!-- About Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-white">About</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- About Section Content-->
+                <div class="row">
+                    <div class="col-lg-4 ms-auto"><p class="lead">I'm Mudiwa Mahachi, a passionate web developer with expertise in frontend technologies. I specialize in creating responsive, user-friendly web applications that deliver exceptional user experiences.</p></div>
+                    <div class="col-lg-4 me-auto"><p class="lead">My skills include HTML5, CSS3, JavaScript, React, and modern development tools. I'm constantly learning and adapting to new technologies to stay at the forefront of web development trends.</p></div>
+                </div>
+                <!-- About Section Button-->
+                <div class="text-center mt-4">
+                    <a class="btn btn-xl btn-outline-light" href="#contact">
+                        <i class="fas fa-envelope me-2"></i>
+                        Contact Me!
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Section-->
+        <section class="page-section" id="contact">
+            <div class="container">
+                <!-- Contact Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contact Me</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Contact Section Form-->
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 col-xl-7">
+                        <form id="contactForm">
+                            <!-- Name input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="name" type="text" placeholder="Enter your name..." required />
+                                <label for="name">Full name</label>
+                            </div>
+                            <!-- Email address input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="email" type="email" placeholder="name@example.com" required />
+                                <label for="email">Email address</label>
+                            </div>
+                            <!-- Phone number input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" />
+                                <label for="phone">Phone number</label>
+                            </div>
+                            <!-- Message input-->
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" required></textarea>
+                                <label for="message">Message</label>
+                            </div>
+                            <!-- Submit Button-->
+                            <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Send</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="footer text-center">
+            <div class="container">
+                <div class="row">
+                    <!-- Footer Location-->
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="text-uppercase mb-4">Location</h4>
+                        <p class="lead mb-0">
+                            Harare, Zimbabwe
+                        </p>
+                    </div>
+                    <!-- Footer Social Icons-->
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="text-uppercase mb-4">Around the Web</h4>
+                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-github"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
+                    </div>
+                    <!-- Footer About Text-->
+                    <div class="col-lg-4">
+                        <h4 class="text-uppercase mb-4">About Mudiwa</h4>
+                        <p class="lead mb-0">
+                            Passionate web developer creating modern, responsive web applications.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Copyright Section-->
+        <div class="copyright py-4 text-center text-white">
+            <div class="container"><small>Copyright &copy; Mudiwa Mahachi 2023</small></div>
+        </div>
+        
+        <!-- Portfolio Modals -->
+        
+        <!-- Portfolio Modal 1 - My Shop -->
+        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" aria-labelledby="portfolioModal1" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-10">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">My Shop</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    <!-- Portfolio Modal - Preview-->
+                                    <div class="my-shop-container">
+                                        <div class="my-shop-logo">
+                                            <i class="fas fa-store"></i>
+                                            <span>My Shop</span>
+                                        </div>
+                                        
+                                        <table class="shop-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Num</th>
+                                                    <th>Item</th>
+                                                    <th>Price</th>
+                                                    <th>Quantity</th>
+                                                    <th>Total</th>
+                                                    <th>Add</th>
+                                                    <th>Remove</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Coke</td>
+                                                    <td>7.5</td>
+                                                    <td class="quantity-display" id="quantity1">0</td>
+                                                    <td class="total-display" id="total1">0.00</td>
+                                                    <td><button class="btn-shop btn-add" onclick="addItem(1)">Add</button></td>
+                                                    <td><button class="btn-shop btn-remove" onclick="removeItem(1)">Remove</button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>Kit Kat</td>
+                                                    <td>9.5</td>
+                                                    <td class="quantity-display" id="quantity2">0</td>
+                                                    <td class="total-display" id="total2">0.00</td>
+                                                    <td><button class="btn-shop btn-add" onclick="addItem(2)">Add</button></td>
+                                                    <td><button class="btn-shop btn-remove" onclick="removeItem(2)">Remove</button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td>Bar One</td>
+                                                    <td>8.5</td>
+                                                    <td class="quantity-display" id="quantity3">0</td>
+                                                    <td class="total-display" id="total3">0.00</td>
+                                                    <td><button class="btn-shop btn-add" onclick="addItem(3)">Add</button></td>
+                                                    <td><button class="btn-shop btn-remove" onclick="removeItem(3)">Remove</button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4</td>
+                                                    <td>Fanta</td>
+                                                    <td>7.5</td>
+                                                    <td class="quantity-display" id="quantity4">0</td>
+                                                    <td class="total-display" id="total4">0.00</td>
+                                                    <td><button class="btn-shop btn-add" onclick="addItem(4)">Add</button></td>
+                                                    <td><button class="btn-shop btn-remove" onclick="removeItem(4)">Remove</button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        
+                                        <div class="checkout-section">
+                                            <div class="grand-total">
+                                                Grand Total: $<span id="grandTotal">0.00</span>
+                                            </div>
+                                            <button class="btn-checkout" onclick="checkout()">Checkout</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Portfolio Modal - Description-->
+                                    <div class="mt-5">
+                                        <p class="mb-4">This shopping cart application demonstrates my ability to create interactive e-commerce interfaces with JavaScript. It includes features like:</p>
+                                        <ul class="list-unstyled mb-4 text-start">
+                                            <li><i class="fas fa-check text-secondary me-2"></i> Dynamic product management with add/remove functionality</li>
+                                            <li><i class="fas fa-check text-secondary me-2"></i> Real-time quantity and total calculation</li>
+                                            <li><i class="fas fa-check text-secondary me-2"></i> Grand total calculation across all products</li>
+                                            <li><i class="fas fa-check text-secondary me-2"></i> Clean, responsive table design</li>
+                                            <li><i class="fas fa-check text-secondary me-2"></i> Intuitive user interface with clear visual feedback</li>
+                                        </ul>
+                                        <a href="https://jsfiddle.net/Mahachi/7bmk9pec/1/" class="btn btn-primary mt-2" target="_blank">View on JSFiddle</a>
+                                    </div>
+                                    
+                                    <button class="btn btn-primary mt-4" data-bs-dismiss="modal">
+                                        <i class="fas fa-xmark fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Portfolio Modal 2 - Dancing Robot -->
+        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModal2" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-10">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Dancing Robot</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    
+                                    <!-- Dancing Robot -->
+                                    <div class="robot-container">
+                                        <div class="robot">
+                                            <div class="robot-head">
+                                                <div class="robot-eye"></div>
+                                                <div class="robot-eye"></div>
+                                            </div>
+                                            <div class="robot-body"></div>
+                                            <div class="robot-arm left"></div>
+                                            <div class="robot-arm right"></div>
+                                            <div class="robot-leg left"></div>
+                                            <div class="robot-leg right"></div>
+                                        </div>
+                                        
+                                        <div class="dance-controls">
+                                            <button class="btn btn-primary me-2" onclick="startDancing()">Start Dancing</button>
+                                            <button class="btn btn-secondary" onclick="stopDancing()">Stop Dancing</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Portfolio Modal - Description-->
+                                    <div class="mt-5">
+                                        <p class="mb-4">This animated robot demonstrates my skills in CSS animations and interactive JavaScript controls. Features include:</p>
+                                        <ul class="list-unstyled mb-4 text-start">
+                                            <li><i class="fas fa-check text-secondary me-2"></i> Pure CSS animations for smooth performance</li>
+                                            <li><i class="fas fa-check text-secondary me-2"></i> Interactive controls to start/stop animations</li>
+                                            <li><i class="fas fa-check text-secondary me-2"></i> Responsive design that works on all devices</li>
+                                            <li><i class="fas fa-check text-secondary me-2"></i> Creative use of CSS transforms and keyframes</li>
+                                            <li><i class="fas fa-check text-secondary me-2"></i> Fun, engaging user experience</li>
+                                        </ul>
+                                        <a href="https://jsfiddle.net/Mahachi/bo7t8fzk/2/" class="btn btn-primary mt-2" target="_blank">View on JSFiddle</a>
+                                    </div>
+                                    
+                                    <button class="btn btn-primary mt-4" data-bs-dismiss="modal">
+                                        <i class="fas fa-xmark fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Portfolio Modal 3 - Things I Like -->
+        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" aria-labelledby="portfolioModal3" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-10">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Things I Like</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    
+                                    <!-- Things I Like -->
+                                    <div class="likes-container">
+                                        <div class="like-item" onclick="showLikeInfo('coding')">
+                                            <i class="fas fa-code"></i>
+                                            <span>Coding</span>
+                                        </div>
+                                        <div class="like-item" onclick="showLikeInfo('music')">
+                                            <i class="fas fa-music"></i>
+                                            <span>Music</span>
+                                        </div>
+                                        <div class="like-item" onclick="showLikeInfo('travel')">
+                                            <i class="fas fa-plane"></i>
+                                            <span>Travel</span>
+                                        </div>
+                                        <div class="like-item" onclick="showLikeInfo('books')">
+                                            <i class="fas fa-book"></i>
+                                            <span>Books</span>
+                                        </div>
+                                        <div class="like-item" onclick="showLikeInfo('games')">
+                                            <i class="fas fa-gamepad"></i>
+                                            <span>Games</span>
+                                        </div>
+                                        <div class="like-item" onclick="showLikeInfo('food')">
+                                            <i class="fas fa-utensils"></i>
+                                            <span>Food</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="likes-description">
+                                        <h4 id="like-title">Select an interest to learn more</h4>
+                                        <p id="like-description">Click on any of the icons above to see more information about my interests and hobbies.</p>
+                                    </div>
+                                    
+                                    <!-- Portfolio Modal - Description-->
+                                    <div class="mt-5">
+                                        <p class="mb-4">This interactive showcase demonstrates my ability to create engaging user interfaces with JavaScript. Features include:</p>
+                                        <ul class="list-unstyled mb-4 text-start">
+                                            <li><i class="fas fa-check text-secondary me-2"></i> Interactive elements with hover and click effects</li>
+                                            <li><i class="fas fa-check text-secondary me-2"></i> Dynamic content display based on user interaction</li>
+                                            <li><i class="fas fa-check text-secondary me-2"></i> Clean, visually appealing card-based layout</li>
+                                            <li><i class="fas fa-check text-secondary me-2"></i> Responsive design that works on all screen sizes</li>
+                                            <li><i class="fas fa-check text-secondary me-2"></i> Personal touch that showcases personality</li>
+                                        </ul>
+                                        <a href="https://jsfiddle.net/Mahachi/tjwv4cy2/8/" class="btn btn-primary mt-2" target="_blank">View on JSFiddle</a>
+                                    </div>
+                                    
+                                    <button class="btn btn-primary mt-4" data-bs-dismiss="modal">
+                                        <i class="fas fa-xmark fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Portfolio Modal 4 - Fortune Teller -->
+        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" aria-labelledby="portfolioModal4" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-10">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Fortune Teller</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    
+                                    <!-- Fortune Teller -->
+                                    <div class="fortune-container">
+                                        <div class="fortune-title">
+                                            <i class="fas fa-crystal-ball me-2"></i>
+                                            Mystic Fortune Teller
+                                        </div>
+                                        
+                                        <div class="crystal-ball">
+                                            <i class="fas fa-question fa-3x" style="color: white; opacity: 0.7;"></i>
+                                        </div>
+                                        
+                                        <input type="text" class="fortune-input" id="fortuneQuestion" placeholder="Ask your question here...">
+                                        
+                                        <button class="fortune-btn" onclick="tellFortune()">
+                                            <i class="fas fa-magic me-2"></i>
+                                            Reveal My Fortune
+                                        </button>
+                                        
+                                        <div class="fortune-result" id="fortuneResult">
+                                            Your fortune will appear here...
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Portfolio Modal - Description-->
+                                    <div class="mt-5">
+                                        <p class="mb-4">This fortune teller application demonstrates my ability to create fun, interactive experiences with JavaScript. Features include:</p>
+                                        <ul class="list-unstyled mb-4 text-start">
+                                            <li><i class="fas fa-check text-secondary me-2"></i> Dynamic fortune generation based on user input</li>
+                                            <li><i class="fas fa-check text-secondary me-2"></i> Mystical visual design with crystal ball effect</li>
+                                            <li><i class="fas fa-check text-secondary me-2"></i> Random fortune selection from predefined options</li>
+                                            <li><i class="fas fa-check text-secondary me-2"></i> Engaging user experience with visual feedback</li>
+                                            <li><i class="fas fa-check text-secondary me-2"></i> Responsive design that works on all devices</li>
+                                        </ul>
+                                        <a href="https://jsfiddle.net/Mahachi/2gafoLj7/2/" class="btn btn-primary mt-2" target="_blank">View on JSFiddle</a>
+                                    </div>
+                                    
+                                    <button class="btn btn-primary mt-4" data-bs-dismiss="modal">
+                                        <i class="fas fa-xmark fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Portfolio Modal 5 - Lunch Game -->
+        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" aria-labelledby="portfolioModal5" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-10">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Lunch Game</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    
+                                    <!-- Lunch Game -->
+                                    <div class="lunch-game-container">
+                                        <div class="lunch-title">
+                                            <i class="fas fa-utensils me-2"></i>
+                                            What's for Lunch?
+                                        </div>
+                                        
+                                        <div class="food-options">
+                                            <div class="food-option" onclick="selectFood('pizza')">
+                                                <i class="fas fa-pizza-slice"></i>
+                                                <span>Pizza</span>
+                                            </div>
+                                            <div class="food-option" onclick="selectFood('burger')">
+                                                <i class="fas fa-hamburger"></i>
+                                                <span>Burger</span>
+                                            </div>
+                                            <div class="food-option" onclick="selectFood('sushi')">
+                                                <i class="fas fa-fish"></i>
+                                                <span>Sushi</span>
+                                            </div>
+                                            <div class="food-option" onclick="selectFood('salad')">
+                                                <i class="fas fa-leaf"></i>
+                                                <span>Salad</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <button class="btn btn-primary" onclick="decideLunch()">
+                                            <i class="fas fa-random me-2"></i>
+                                            Decide For Me!
+                                        </button>
+                                        
+                                        <div class="lunch-result" id="lunchResult">
+                                            Your lunch selection will appear here...
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Portfolio Modal - Description-->
+                                    <div class="mt-5">
+                                        <p class="mb-4">This lunch game demonstrates my ability to create fun, interactive applications with JavaScript. Features include:</p>
+                                        <ul class="list-unstyled mb-4 text-start">
+                                            <li><i class="fas fa-check text-secondary me-2"></i> Interactive food selection with visual feedback</li>
+                                            <li><i class="fas fa-check text-secondary me-2"></i> Random lunch decision generator</li>
+                                            <li><i class="fas fa-check text-secondary me-2"></i> Clean, appetizing visual design</li>
+                                            <li><i class="fas fa-check text-secondary me-2"></i> Responsive layout that works on all devices</li>
+                                            <li><i class="fas fa-check text-secondary me-2"></i> Fun user experience with practical application</li>
+                                        </ul>
+                                        <a href="https://jsfiddle.net/Mahachi/50k97ves/4/" class="btn btn-primary mt-2" target="_blank">View on JSFiddle</a>
+                                    </div>
+                                    
+                                    <button class="btn btn-primary mt-4" data-bs-dismiss="modal">
+                                        <i class="fas fa-xmark fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Portfolio Modal 6 - Pizzeria -->
+        <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" aria-labelledby="portfolioModal6" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-10">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Pizzeria</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    
+                                    <!-- Pizzeria -->
+                                    <div class="pizzeria-container">
+                                        <div class="pizzeria-title">
+                                            <i class="fas fa-pizza-slice me-2"></i>
+                                            Build Your Pizza
+                                        </div>
+                                        
+                                        <div class="pizza-base" id="pizzaBase">
+                                            <!-- Pizza toppings will be added here dynamically -->
+                                        </div>
+                                        
+                                        <div class="toppings-selector">
+                                            <div class="topping-option" data-topping="pepperoni" data-price="2.50">Pepperoni (+$2.50)</div>
+                                            <div class="topping-option" data-topping="mushrooms" data-price="1.50">Mushrooms (+$1.50)</div>
+                                            <div class="topping-option" data-topping="peppers" data-price="1.00">Peppers (+$1.00)</div>
+                                            <div class="topping-option" data-topping="onions" data-price="1.00">Onions (+$1.00)</div>
+                                            <div class="topping-option" data-topping="olives" data-price="1.50">Olives (+$1.50)</div>
+                                            <div class="topping-option" data-topping="sausage" data-price="2.00">Sausage (+$2.00)</div>
+                                        </div>
+                                        
+                                        <div class="pizza-summary mt-4">
+                                            <h5>Your Order:</h5>
+                                            <div id="orderSummary">
+                                                Base Pizza: $10.00<br>
+                                                Toppings: $0.00<br>
+                                                <strong>Total: $10.00</strong>
+                                            </div>
+                                        </div>
+                                        
+                                        <button class="btn btn-primary mt-3" onclick="orderPizza()">
+                                            <i class="fas fa-shopping-cart me-2"></i>
+                                            Order Pizza
+                                        </button>
+                                        
+                                        <div class="pizza-result mt-3" id="pizzaResult">
+                                            Your pizza order will appear here...
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Portfolio Modal - Description-->
+                                    <div class="mt-5">
+                                        <p class="mb-4">This pizzeria application demonstrates my ability to create interactive product builders with JavaScript. Features include:</p>
+                                        <ul class="list-unstyled mb-4 text-start">
+                                            <li><i class="fas fa-check text-secondary me-2"></i> Interactive pizza topping selection</li>
+                                            <li><i class="fas fa-check text-secondary me-2"></i> Real-time cost calculation</li>
+                                            <li><i class="fas fa-check text-secondary me-2"></i> Visual feedback for selected toppings</li>
+                                            <li><i class="fas fa-check text-secondary me-2"></i> Dynamic order summary generation</li>
+                                            <li><i class="fas fa-check text-secondary me-2"></i> Clean, appetizing visual design</li>
+                                        </ul>
+                                        <a href="https://jsfiddle.net/Mahachi/rphdfgsu/2/" class="btn btn-primary mt-2" target="_blank">View on JSFiddle</a>
+                                    </div>
+                                    
+                                    <button class="btn btn-primary mt-4" data-bs-dismiss="modal">
+                                        <i class="fas fa-xmark fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script>
+            // Simple form submission handler
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! I will get back to you soon.');
+                this.reset();
+            });
+            
+            // My Shop functionality
+            const prices = [0, 7.5, 9.5, 8.5, 7.5]; // Prices for items 1-4
+            const quantities = [0, 0, 0, 0, 0]; // Quantities for items 1-4
+            
+            function addItem(itemId) {
+                quantities[itemId]++;
+                updateDisplay(itemId);
+                updateGrandTotal();
+            }
+            
+            function removeItem(itemId) {
+                if (quantities[itemId] > 0) {
+                    quantities[itemId]--;
+                    updateDisplay(itemId);
+                    updateGrandTotal();
+                }
+            }
+            
+            function updateDisplay(itemId) {
+                document.getElementById(`quantity${itemId}`).textContent = quantities[itemId];
+                document.getElementById(`total${itemId}`).textContent = (quantities[itemId] * prices[itemId]).toFixed(2);
+            }
+            
+            function updateGrandTotal() {
+                let grandTotal = 0;
+                for (let i = 1; i <= 4; i++) {
+                    grandTotal += quantities[i] * prices[i];
+                }
+                document.getElementById('grandTotal').textContent = grandTotal.toFixed(2);
+            }
+            
+            function checkout() {
+                let totalItems = quantities.reduce((sum, qty) => sum + qty, 0);
+                if (totalItems === 0) {
+                    alert('Your cart is empty. Please add some items before checking out.');
+                } else {
+                    alert(`Thank you for your purchase! Your total is $${document.getElementById('grandTotal').textContent}`);
+                    // Reset cart
+                    for (let i = 1; i <= 4; i++) {
+                        quantities[i] = 0;
+                        updateDisplay(i);
+                    }
+                    updateGrandTotal();
+                }
+            }
+            
+            // Dancing Robot functionality
+            function startDancing() {
+                document.querySelectorAll('.robot-arm, .robot-leg').forEach(part => {
+                    part.style.animationPlayState = 'running';
+                });
+            }
+            
+            function stopDancing() {
+                document.querySelectorAll('.robot-arm, .robot-leg').forEach(part => {
+                    part.style.animationPlayState = 'paused';
+                });
+            }
+            
+            // Things I Like functionality
+            const likeInfo = {
+                coding: {
+                    title: "Coding",
+                    description: "I love creating web applications and exploring new technologies. From frontend frameworks to backend systems, coding allows me to bring ideas to life and solve complex problems."
+                },
+                music: {
+                    title: "Music",
+                    description: "Music is a big part of my life. I enjoy listening to various genres and occasionally playing guitar. It helps me relax and find inspiration for my creative projects."
+                },
+                travel: {
+                    title: "Travel",
+                    description: "Exploring new places and experiencing different cultures is something I truly enjoy. Traveling broadens my perspective and inspires me in both personal and professional aspects."
+                },
+                books: {
+                    title: "Books",
+                    description: "I'm an avid reader, particularly enjoying science fiction, technology, and personal development books. Reading helps me continuously learn and grow."
+                },
+                games: {
+                    title: "Games",
+                    description: "I enjoy playing video games in my free time, especially strategy and puzzle games. They help me unwind and often provide interesting problem-solving challenges."
+                },
+                food: {
+                    title: "Food",
+                    description: "I love exploring different cuisines and trying new recipes. Cooking is both a creative outlet and a way to connect with different cultures."
+                }
+            };
+            
+            function showLikeInfo(category) {
+                // Remove active class from all items
+                document.querySelectorAll('.like-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Add active class to clicked item
+                event.currentTarget.classList.add('active');
+                
+                // Update description
+                document.getElementById('like-title').textContent = likeInfo[category].title;
+                document.getElementById('like-description').textContent = likeInfo[category].description;
+            }
+            
+            // Fortune Teller functionality
+            const fortunes = [
+                "A beautiful, smart, and loving person will be coming into your life.",
+                "A dubious friend may be an enemy in camouflage.",
+                "A faithful friend is a strong defense.",
+                "A feather in the hand is better than a bird in the air.",
+                "A fresh start will put you on your way.",
+                "A friend asks only for your time, not your money.",
+                "A friend is a present you give yourself.",
+                "A gambler not only will lose what he has, but also will lose what he doesn't have.",
+                "A golden egg of opportunity falls into your lap this month.",
+                "A good friendship is often more important than a passionate romance.",
+                "A good time to finish up old tasks.",
+                "A hunch is creativity trying to tell you something.",
+                "A lifetime of happiness lies ahead of you.",
+                "A light heart carries you through all the hard times.",
+                "A new perspective will come with the new year.",
+                "A person is never too old to learn.",
+                "A person of words and not deeds is like a garden full of weeds.",
+                "A pleasant surprise is waiting for you.",
+                "A short pencil is usually better than a long memory any day.",
+                "A small donation is call for. It's the right thing to do.",
+                "A smile is your personal welcome mat.",
+                "A smooth long journey! Great expectations.",
+                "A soft voice may be awfully persuasive.",
+                "A truly rich life contains love and art in abundance.",
+                "Accept something that you cannot change, and you will feel better.",
+                "Adventure can be real happiness.",
+                "Advice is like kissing. It costs nothing and is a pleasant thing to do.",
+                "Advice, when most needed, is least heeded.",
+                "All the effort you are making will ultimately pay off.",
+                "All the troubles you have will pass away very quickly.",
+                "All will go well with your new project.",
+                "All your hard work will soon pay off."
+            ];
+            
+            function tellFortune() {
+                const question = document.getElementById('fortuneQuestion').value;
+                const resultElement = document.getElementById('fortuneResult');
+                
+                if (question.trim() === '') {
+                    resultElement.textContent = "Please ask a question to receive your fortune!";
+                    return;
+                }
+                
+                const randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)];
+                resultElement.textContent = randomFortune;
+            }
+            
+            // Lunch Game functionality
+            let selectedFood = '';
+            
+            function selectFood(food) {
+                selectedFood = food;
+                
+                // Remove selected class from all options
+                document.querySelectorAll('.food-option').forEach(option => {
+                    option.classList.remove('selected');
+                });
+                
+                // Add selected class to clicked option
+                event.currentTarget.classList.add('selected');
+            }
+            
+            function decideLunch() {
+                const foods = ['pizza', 'burger', 'sushi', 'salad'];
+                const randomFood = foods[Math.floor(Math.random() * foods.length)];
+                const resultElement = document.getElementById('lunchResult');
+                
+                if (selectedFood) {
+                    resultElement.textContent = `You've selected ${selectedFood.charAt(0).toUpperCase() + selectedFood.slice(1)}! Enjoy your lunch!`;
+                } else {
+                    resultElement.textContent = `The lunch game suggests ${randomFood.charAt(0).toUpperCase() + randomFood.slice(1)}! Enjoy your lunch!`;
+                }
+            }
+            
+            // Pizzeria functionality
+            const selectedToppings = [];
+            const basePrice = 10.00;
+            const toppingPrices = {
+                'pepperoni': 2.50,
+                'mushrooms': 1.50,
+                'peppers': 1.00,
+                'onions': 1.00,
+                'olives': 1.50,
+                'sausage': 2.00
+            };
+
+            // Initialize topping selection
+            document.querySelectorAll('.topping-option').forEach(topping => {
+                topping.addEventListener('click', function() {
+                    const toppingName = this.getAttribute('data-topping');
+                    toggleTopping(toppingName);
+                });
+            });
+
+            function toggleTopping(topping) {
+                if (selectedToppings.includes(topping)) {
+                    // Remove topping
+                    const index = selectedToppings.indexOf(topping);
+                    selectedToppings.splice(index, 1);
+                } else {
+                    // Add topping
+                    selectedToppings.push(topping);
+                }
+                
+                // Update visual selection
+                document.querySelectorAll('.topping-option').forEach(option => {
+                    if (option.getAttribute('data-topping') === topping) {
+                        option.classList.toggle('selected');
+                    }
+                });
+                
+                updateOrderSummary();
+            }
+
+            function updateOrderSummary() {
+                const orderSummaryElement = document.getElementById('orderSummary');
+                let toppingsTotal = 0;
+                
+                selectedToppings.forEach(topping => {
+                    toppingsTotal += toppingPrices[topping];
+                });
+                
+                const totalPrice = basePrice + toppingsTotal;
+                
+                let summaryHTML = `Base Pizza: $${basePrice.toFixed(2)}<br>`;
+                
+                if (selectedToppings.length > 0) {
+                    summaryHTML += 'Toppings:<br>';
+                    selectedToppings.forEach(topping => {
+                        summaryHTML += `- ${topping.charAt(0).toUpperCase() + topping.slice(1)}: $${toppingPrices[topping].toFixed(2)}<br>`;
+                    });
+                } else {
+                    summaryHTML += 'Toppings: $0.00<br>';
+                }
+                
+                summaryHTML += `<strong>Total: $${totalPrice.toFixed(2)}</strong>`;
+                
+                orderSummaryElement.innerHTML = summaryHTML;
+            }
+
+            function orderPizza() {
+                const resultElement = document.getElementById('pizzaResult');
+                
+                let toppingsTotal = 0;
+                selectedToppings.forEach(topping => {
+                    toppingsTotal += toppingPrices[topping];
+                });
+                
+                const totalPrice = basePrice + toppingsTotal;
+                
+                if (selectedToppings.length === 0) {
+                    resultElement.textContent = "Your plain pizza costs $" + totalPrice.toFixed(2) + ". Add some toppings for more flavor!";
+                    return;
+                }
+                
+                const toppingsText = selectedToppings.map(topping => 
+                    topping.charAt(0).toUpperCase() + topping.slice(1)
+                ).join(', ');
+                
+                resultElement.textContent = `Your pizza with ${toppingsText} costs $${totalPrice.toFixed(2)}. Thank you for your order!`;
+            }
+
+            // Initialize order summary on page load
+            document.addEventListener('DOMContentLoaded', function() {
+                updateOrderSummary();
+            });
+        </script>
+    </body>
+</html>
