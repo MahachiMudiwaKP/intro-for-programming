@@ -1,0 +1,42 @@
+body {
+  font-family: "Comic Sans MS", cursive;
+  background-color: #87CEEB;  /* Sky blue */
+  text-align: center;
+  margin: 20px;
+  color: #333;
+}
+#calendar {
+  max-width: 300px;
+  margin: 0 auto;
+  border: 3px solid #FFD700;  /* Gold border */
+  padding: 20px;
+  border-radius: 15px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+select {
+  width: 150px;
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 2px solid #4CAF50;
+}
+button {
+  background-color: #4CAF50;  /* Green */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+button:hover {
+  background-color: #45a049;
+}
+#activity {
+  color: #FF4500;  /* Orange text */
+  font-size: 20px;
+  margin-top: 20px;
+  font-style: italic;
+}

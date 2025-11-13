@@ -1,0 +1,22 @@
+<div id="pizzeria">
+  <h1>JavaScript Pizzeria</h1>
+  <form>
+    <label for="size">Choose a size:</label>
+    <select id="size" name="size">
+      <option value="small">Small</option>
+      <option value="medium">Medium</option>
+      <option value="large">Large</option>
+    </select>
+    <br><br>
+    <label for="toppings">Choose toppings:</label>
+    <select id="toppings" name="toppings" multiple="multiple" size="4">
+      <option value="pepperoni">Pepperoni ($1.00)</option>
+      <option value="sausage">Sausage ($1.50)</option>
+      <option value="mushrooms">Mushrooms ($0.50)</option>
+      <option value="cheese">Extra Cheese ($1.00)</option>
+    </select>
+    <br><br>
+    <input type="button" value="Order Pizza!" id="orderBtn">
+  </form>
+  <div id="output"></div>
+</div>
